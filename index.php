@@ -13,8 +13,8 @@ if(isset($_POST['login']))
     } 
     else {
         $email=$_POST['emailid'];
-        $password=md5($_POST['password']);
-        $sql ="SELECT * FROM tblstudents WHERE EmailId=:email and Password=:password";
+        $password=$_POST['password'];
+        $sql ="SELECT * FROM students WHERE EmailId=:email and Password=:password;";
         $query= $dbh -> prepare($sql);
         $query-> bindParam(':email', $email, PDO::PARAM_STR);
         $query-> bindParam(':password', $password, PDO::PARAM_STR);
@@ -72,7 +72,7 @@ if(isset($_POST['login']))
                     <h4 class="header-line">USER LOGIN FORM</h4>
                 </div>
             </div>
-            
+
             <!--LOGIN PANEL START-->           
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" >
@@ -105,8 +105,8 @@ if(isset($_POST['login']))
             </div>
         </div>  
         <!---LOGIN PANEL END-->
-        
-        
+
+
     </div>
 </div>
 <!-- CONTENT-WRAPPER SECTION END-->

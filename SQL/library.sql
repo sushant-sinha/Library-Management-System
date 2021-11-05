@@ -45,10 +45,10 @@ INSERT INTO `admin` (`id`, `FullName`, `Email`, `UserName`, `Password`, `updatio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblauthors`
+-- Table structure for table `authors`
 --
 
-CREATE TABLE IF NOT EXISTS `tblauthors` (
+CREATE TABLE IF NOT EXISTS `authors` (
   `id` int(11) NOT NULL,
   `AuthorName` varchar(159) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -56,10 +56,10 @@ CREATE TABLE IF NOT EXISTS `tblauthors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tblauthors`
+-- Dumping data for table `authors`
 --
 
-INSERT INTO `tblauthors` (`id`, `AuthorName`, `creationDate`, `UpdationDate`) VALUES
+INSERT INTO `authors` (`id`, `AuthorName`, `creationDate`, `UpdationDate`) VALUES
 (1, 'Anuj kumar', '2017-07-08 12:49:09', '2017-07-08 15:16:59'),
 (2, 'Chetan Bhagatt', '2017-07-08 14:30:23', '2017-07-08 15:15:09'),
 (3, 'Anita Desai', '2017-07-08 14:35:08', NULL),
@@ -70,35 +70,35 @@ INSERT INTO `tblauthors` (`id`, `AuthorName`, `creationDate`, `UpdationDate`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblbooks`
+-- Table structure for table `books`
 --
 
-CREATE TABLE IF NOT EXISTS `tblbooks` (
+CREATE TABLE IF NOT EXISTS `books` (
   `id` int(11) NOT NULL,
   `BookName` varchar(255) DEFAULT NULL,
-  `CatId` int(11) DEFAULT NULL,
+  `Genreid` int(11) DEFAULT NULL,
   `AuthorId` int(11) DEFAULT NULL,
   `ISBNNumber` int(11) DEFAULT NULL,
   `BookPrice` int(11) DEFAULT NULL,
   `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+);
 
 --
--- Dumping data for table `tblbooks`
+-- Dumping data for table `books`
 --
 
-INSERT INTO `tblbooks` (`id`, `BookName`, `CatId`, `AuthorId`, `ISBNNumber`, `BookPrice`, `RegDate`, `UpdationDate`) VALUES
+INSERT INTO `books` (`id`, `BookName`, `Genreid`, `AuthorId`, `ISBNNumber`, `BookPrice`, `RegDate`, `UpdationDate`) VALUES
 (1, 'PHP And MySql programming', 5, 1, 222333, 20, '2017-07-08 20:04:55', '2017-07-15 05:54:41'),
 (3, 'physics', 6, 4, 1111, 15, '2017-07-08 20:17:31', '2017-07-15 06:13:17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcategory`
+-- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `tblcategory` (
+CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL,
   `CategoryName` varchar(150) DEFAULT NULL,
   `Status` int(1) DEFAULT NULL,
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS `tblcategory` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tblcategory`
+-- Dumping data for table `genre`
 --
 
-INSERT INTO `tblcategory` (`id`, `CategoryName`, `Status`, `CreationDate`, `UpdationDate`) VALUES
+INSERT INTO `category` (`id`, `Genre`, `Status`, `CreationDate`, `UpdationDate`) VALUES
 (4, 'Romantic', 1, '2017-07-04 18:35:25', '2017-07-06 16:00:42'),
 (5, 'Technology', 1, '2017-07-04 18:35:39', '2017-07-08 17:13:03'),
 (6, 'Science', 1, '2017-07-04 18:35:55', '0000-00-00 00:00:00'),
@@ -119,24 +119,24 @@ INSERT INTO `tblcategory` (`id`, `CategoryName`, `Status`, `CreationDate`, `Upda
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblissuedbookdetails`
+-- Table structure for table `issuedbookdetails`
 --
 
-CREATE TABLE IF NOT EXISTS `tblissuedbookdetails` (
+CREATE TABLE IF NOT EXISTS `issuedbookdetails` (
   `id` int(11) NOT NULL,
   `BookId` int(11) DEFAULT NULL,
-  `StudentID` varchar(150) DEFAULT NULL,
+  `StudentID` varchar(10) DEFAULT NULL,
   `IssuesDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `ReturnDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `RetrunStatus` int(1) NOT NULL,
   `fine` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+);
 
 --
--- Dumping data for table `tblissuedbookdetails`
+-- Dumping data for table `issuedbookdetails`
 --
 
-INSERT INTO `tblissuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `ReturnDate`, `RetrunStatus`, `fine`) VALUES
+INSERT INTO `issuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `ReturnDate`, `RetrunStatus`, `fine`) VALUES
 (1, 1, 'SID002', '2017-07-15 06:09:47', '2017-07-15 11:15:20', 1, 0),
 (2, 1, 'SID002', '2017-07-15 06:12:27', '2017-07-15 11:15:23', 1, 5),
 (3, 3, 'SID002', '2017-07-15 06:13:40', NULL, 0, NULL),
@@ -147,10 +147,10 @@ INSERT INTO `tblissuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblstudents`
+-- Table structure for table `students`
 --
 
-CREATE TABLE IF NOT EXISTS `tblstudents` (
+CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL,
   `StudentId` varchar(100) DEFAULT NULL,
   `FullName` varchar(120) DEFAULT NULL,
@@ -160,13 +160,13 @@ CREATE TABLE IF NOT EXISTS `tblstudents` (
   `Status` int(1) DEFAULT NULL,
   `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+);
 
 --
--- Dumping data for table `tblstudents`
+-- Dumping data for table `students`
 --
 
-INSERT INTO `tblstudents` (`id`, `StudentId`, `FullName`, `EmailId`, `MobileNumber`, `Password`, `Status`, `RegDate`, `UpdationDate`) VALUES
+INSERT INTO `students` (`id`, `StudentId`, `FullName`, `EmailId`, `MobileNumber`, `Password`, `Status`, `RegDate`, `UpdationDate`) VALUES
 (1, 'SID002', 'Anuj kumar', 'anuj.lpu1@gmail.com', '9865472555', 'f925916e2754e5e03f75dd58a5733251', 1, '2017-07-11 15:37:05', '2017-07-15 18:26:21'),
 (4, 'SID005', 'sdfsd', 'csfsd@dfsfks.com', '8569710025', '92228410fc8b872914e023160cf4ae8f', 0, '2017-07-11 15:41:27', '2017-07-15 17:43:03'),
 (8, 'SID009', 'test', 'test@gmail.com', '2359874527', 'f925916e2754e5e03f75dd58a5733251', 1, '2017-07-11 15:58:28', '2017-07-15 13:42:44'),
@@ -184,33 +184,33 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblauthors`
+-- Indexes for table `authors`
 --
-ALTER TABLE `tblauthors`
+ALTER TABLE `authors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblbooks`
+-- Indexes for table `books`
 --
-ALTER TABLE `tblbooks`
+ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblcategory`
+-- Indexes for table `category`
 --
-ALTER TABLE `tblcategory`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblissuedbookdetails`
+-- Indexes for table `issuedbookdetails`
 --
-ALTER TABLE `tblissuedbookdetails`
+ALTER TABLE `issuedbookdetails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblstudents`
+-- Indexes for table `students`
 --
-ALTER TABLE `tblstudents`
+ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `StudentId` (`StudentId`);
 
@@ -224,29 +224,29 @@ ALTER TABLE `tblstudents`
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `tblauthors`
+-- AUTO_INCREMENT for table `authors`
 --
-ALTER TABLE `tblauthors`
+ALTER TABLE `authors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT for table `tblbooks`
+-- AUTO_INCREMENT for table `books`
 --
-ALTER TABLE `tblbooks`
+ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `tblcategory`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `tblcategory`
+ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `tblissuedbookdetails`
+-- AUTO_INCREMENT for table `issuedbookdetails`
 --
-ALTER TABLE `tblissuedbookdetails`
+ALTER TABLE `issuedbookdetails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `tblstudents`
+-- AUTO_INCREMENT for table `students`
 --
-ALTER TABLE `tblstudents`
+ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

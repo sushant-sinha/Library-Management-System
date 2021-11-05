@@ -14,7 +14,7 @@ if(isset($_POST['login']))
     else {
 
         $username=$_POST['username'];
-        $password=($_POST['password']);
+        $password=$_POST['password'];
         $sql ="SELECT UserName,Password FROM admin WHERE UserName=:username and Password=:password";
         $query= $dbh -> prepare($sql);
         $query-> bindParam(':username', $username, PDO::PARAM_STR);
