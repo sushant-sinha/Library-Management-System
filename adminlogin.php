@@ -24,8 +24,6 @@ if(isset($_POST['login']))
         if($query->rowCount() > 0)
         {
             $_SESSION['alogin']=$_POST['username'];
-            session_unset();
-            session_destroy();
             header("Location: admin/dashboard.php");
         } else{
             echo "<script>alert('Invalid Details');</script>";
