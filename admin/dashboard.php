@@ -33,18 +33,18 @@ else{?>
       <?php include('includes/header.php');?>
       <!-- MENU SECTION END-->
       <div class="content-wrapper">
-       <div class="container">
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">ADMIN DASHBOARD</h4>
-                
+         <div class="container">
+            <div class="row pad-botm">
+                <div class="col-md-12">
+                    <h4 class="header-line">ADMIN DASHBOARD</h4>
+                    
+                </div>
+
             </div>
+            
+            <div class="row">
 
-        </div>
-        
-        <div class="row">
-
-           <div class="col-md-3 col-sm-3 col-xs-6">
+             <div class="col-md-3 col-sm-3 col-xs-6">
               <div class="alert alert-success back-widget-set text-center">
                 <i class="fa fa-book fa-5x"></i>
                 <?php 
@@ -53,7 +53,7 @@ else{?>
                 $query->execute();
                 $results=$query->fetchAll(PDO::FETCH_OBJ);
                 $listdbooks=$query->rowCount();
-                echo $listdbooks;
+                //echo $listdbooks;
                 ?>
 
 
@@ -117,21 +117,21 @@ else{?>
 
 <div class="row">
 
-   <div class="col-md-3 col-sm-3 col-xs-6">
-      <div class="alert alert-success back-widget-set text-center">
-        <i class="fa fa-user fa-5x"></i>
-        <?php 
-        $sql4 ="SELECT id from authors ";
-        $query4 = $dbh -> prepare($sql4);
-        $query4->execute();
-        $results4=$query4->fetchAll(PDO::FETCH_OBJ);
-        $listdathrs=$query4->rowCount();
-        ?>
+ <div class="col-md-3 col-sm-3 col-xs-6">
+  <div class="alert alert-success back-widget-set text-center">
+    <i class="fa fa-user fa-5x"></i>
+    <?php 
+    $sql4 ="SELECT id from authors ";
+    $query4 = $dbh -> prepare($sql4);
+    $query4->execute();
+    $results4=$query4->fetchAll(PDO::FETCH_OBJ);
+    $listdathrs=$query4->rowCount();
+    ?>
 
 
-        <h3><?php echo htmlentities($listdathrs);?></h3>
-        Authors Listed
-    </div>
+    <h3><?php echo htmlentities($listdathrs);?></h3>
+    Authors Listed
+</div>
 </div>
 
 
@@ -178,7 +178,7 @@ else{?>
 
   <div class="col-md-10 col-sm-8 col-xs-12 col-md-offset-1">
     <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
-     
+       
         <div class="carousel-inner">
             <div class="item active">
 

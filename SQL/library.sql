@@ -53,19 +53,17 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `AuthorName` varchar(159) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `authors`
 --
 
 INSERT INTO `authors` (`id`, `AuthorName`, `creationDate`, `UpdationDate`) VALUES
-(1, 'Anuj kumar', '2017-07-08 12:49:09', '2017-07-08 15:16:59'),
-(2, 'Chetan Bhagatt', '2017-07-08 14:30:23', '2017-07-08 15:15:09'),
-(3, 'Anita Desai', '2017-07-08 14:35:08', NULL),
-(4, 'HC Verma', '2017-07-08 14:35:21', NULL),
-(5, 'R.D. Sharma ', '2017-07-08 14:35:36', NULL),
-(9, 'fwdfrwer', '2017-07-08 15:22:03', NULL);
+(1, 'Chetan Bhagatt', '2017-07-08 14:30:23', '2017-07-08 15:15:09'),
+(2, 'Anita Desai', '2017-07-08 14:35:08', NULL),
+(3, 'HC Verma', '2017-07-08 14:35:21', NULL),
+(4, 'R.D. Sharma ', '2017-07-08 14:35:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,26 +93,27 @@ INSERT INTO `books` (`id`, `BookName`, `Genreid`, `AuthorId`, `ISBNNumber`, `Boo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Same as category
+-- Table structure for table `genre`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-  `id` int(11) NOT NULL,
-  `CategoryName` varchar(150) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `genre` (
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `Genre` varchar(150) DEFAULT NULL,
   `Status` int(1) DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `UpdationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
 --
 -- Dumping data for table `genre`
 --
 
-INSERT INTO `category` (`id`, `Genre`, `Status`, `CreationDate`, `UpdationDate`) VALUES
+INSERT INTO `genre` (`id`, `Genre`, `Status`, `CreationDate`, `UpdationDate`) VALUES
 (4, 'Romantic', 1, '2017-07-04 18:35:25', '2017-07-06 16:00:42'),
 (5, 'Technology', 1, '2017-07-04 18:35:39', '2017-07-08 17:13:03'),
-(6, 'Science', 1, '2017-07-04 18:35:55', '0000-00-00 00:00:00'),
-(7, 'Management', 0, '2017-07-04 18:36:16', '0000-00-00 00:00:00');
+(6, 'Science', 1, '2017-07-04 18:35:55', CURRENT_TIMESTAMP),
+(7, 'Management', 0, '2017-07-04 18:36:16', CURRENT_TIMESTAMP);
 
 -- --------------------------------------------------------
 
