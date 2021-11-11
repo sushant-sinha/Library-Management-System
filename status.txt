@@ -1,1 +1,2 @@
 adding logout, signup and user-forgot-password
+adding check availability.
