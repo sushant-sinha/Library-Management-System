@@ -1,3 +1,3 @@
-adding (done)logout, (done)signup and user-forgot-password.
+adding (done)logout, (done)signup, (done)index and (done)user-forgot-password.
 adding check availability.
 adding change-password.
