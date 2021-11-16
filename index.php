@@ -5,15 +5,15 @@ include('includes/config.php');
 if($_SESSION['login']!=''){
     $_SESSION['login']='';
 }
-if(isset($_POST['login']))
-{
-  //code for captach verification
-    if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
+if(isset($_POST['login'])){
+
+      //code for captach verification
+    if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]==''){
         echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-    else {
+    }
+    else{
         $email=$_POST['emailid'];
-        $password=$_POST['password'];
+        $password=md5($_POST['password']);
         $sql ="SELECT * FROM students WHERE EmailId=:email and Password=:password;";
         $query= $dbh -> prepare($sql);
         $query-> bindParam(':email', $email, PDO::PARAM_STR);
@@ -21,26 +21,24 @@ if(isset($_POST['login']))
         $query-> execute();
         $results=$query->fetchAll(PDO::FETCH_OBJ);
 
-        if($query->rowCount() > 0)
-        {
-           foreach ($results as $result) {
-               $_SESSION['stdid']=$result->StudentId;
-               if($result->Status==1)
-               {
-                $_SESSION['login']=$_POST['emailid'];
-                echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
-            } else {
-                echo "<script>alert('Your Account Has been blocked .Please contact admin');</script>";
+        if($query->rowCount() > 0){
 
+            foreach ($results as $result){
+                $_SESSION['stdid']=$result->StudentId;
+                if($result->Status==1){
+                    $_SESSION['login']=$_POST['emailid'];
+                    echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
+                }
+
+                else{
+                    echo "<script>alert('Your Account Has been blocked .Please contact admin');</script>";
+                }
             }
         }
-
-    } 
-
-    else{
-        echo "<script>alert('Invalid Details');</script>";
+        else{
+            echo "<script>alert('Invalid Details');</script>";
+        }
     }
-}
 }
 ?>
 <!DOCTYPE html>
@@ -104,7 +102,7 @@ if(isset($_POST['login']))
                 </div>
             </div>
         </div>  
-        <!---LOGIN PANEL END-->
+        <!---LOGIN PABNEL END-->            
 
 
     </div>
