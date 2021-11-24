@@ -126,6 +126,7 @@ else{
                                 <?php }} ?>
 
                                 <button type="submit" name="update" class="btn btn-primary" id="submit">Update Now </button>
+                                <!-- the above update now button is not working........ the FullName and MobileNumber fields of students table is being turned to NULL -->
 
                             </form>
                         </div>

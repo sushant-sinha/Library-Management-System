@@ -1,8 +1,9 @@
 adding (done)logout, (done)signup, (done)index and (done)user-forgot-password.
 
+check availability has error, the field is being turned to NULL
+
 	to  do
 	   |
 	   v
 
-adding check availability.
 adding change-password.
