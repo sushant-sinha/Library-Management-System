@@ -13,7 +13,7 @@ else{
         $fname=$_POST['fullanme'];
         $mobileno=$_POST['mobileno'];
 
-        $sql="update tblstudents set FullName=:fname,MobileNumber=:mobileno where StudentId=:sid";
+        $sql="update students set FullName=:fname, MobileNumber=:mobileno where StudentId=:sid";
         $query = $dbh->prepare($sql);
         $query->bindParam(':sid',$sid,PDO::PARAM_STR);
         $query->bindParam(':fname',$fname,PDO::PARAM_STR);
@@ -126,7 +126,7 @@ else{
                                 <?php }} ?>
 
                                 <button type="submit" name="update" class="btn btn-primary" id="submit">Update Now </button>
-                                <!-- the above update now button is not working........ the FullName and MobileNumber fields of students table is being turned to NULL -->
+                                <!-- works now -->
 
                             </form>
                         </div>

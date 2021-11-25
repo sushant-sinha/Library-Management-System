@@ -1,14 +1,16 @@
 <?php 
 require_once("includes/config.php");
+
 // code user email availablity
+// its just a warning.... even though it says its not valid... it allows the email to be
 
 if(!empty($_POST["emailid"])){
 	$email= $_POST["emailid"];
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)===false) {
 
-		echo "error : You did not enter a valid email.";
+		echo " <h5 style=\"color:#f12200\", align=center>You did not enter a valid email. </h5>";
 	}
-	
+
 	else {
 		
 		$sql ="SELECT EmailId FROM students WHERE EmailId=:email";
@@ -17,12 +19,12 @@ if(!empty($_POST["emailid"])){
 		$query-> execute();
 		$results = $query -> fetchAll(PDO::FETCH_OBJ);
 		$cnt=1;
-		if($query -> rowCount() > 0)
-		{
+		if($query->rowCount()>0){
 			echo "<span style='color:red'> Email already exists .</span>";
 			echo "<script>$('#submit').prop('disabled',true);</script>";
-		} else{
-			
+		}
+		
+		else{
 			echo "<span style='color:green'> Email available for Registration .</span>";
 			echo "<script>$('#submit').prop('disabled',false);</script>";
 		}
