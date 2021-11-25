@@ -96,7 +96,7 @@ if(isset($_POST['signup'])){
         <?php include('includes/header.php');?>
         <!-- MENU SECTION END-->
         <div class="content-wrapper">
-         <div class="container">
+           <div class="container">
             <div class="row pad-botm">
                 <div class="col-md-12">
                     <h4 class="header-line">User Signup</h4>
@@ -107,11 +107,11 @@ if(isset($_POST['signup'])){
             <div class="row">
 
                 <div class="col-md-9 col-md-offset-1">
-                   <div class="panel panel-danger">
+                 <div class="panel panel-danger">
                     <div class="panel-heading">
-                       SIGNUP FORM
-                   </div>
-                   <div class="panel-body">
+                     SIGNUP FORM
+                 </div>
+                 <div class="panel-body">
                     <form name="signup" method="post" onSubmit="return valid();">
                         <div class="form-group">
                             <label>Enter Full Name</label>
@@ -121,7 +121,7 @@ if(isset($_POST['signup'])){
 
                         <div class="form-group">
                             <label>Mobile Number :</label>
-                            <input class="form-control" type="text" name="mobileno" maxlength="10" autocomplete="off" required />
+                            <input class="form-control" type="tel" name="mobileno" minlength="10" maxlength="10" pattern="[1-9]{1}[0-9]{9}" autocomplete="off" required />
                         </div>
 
                         <div class="form-group">
