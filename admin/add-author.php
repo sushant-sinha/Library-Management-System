@@ -11,7 +11,7 @@ else{
     if(isset($_POST['create']))
     {
         $author=$_POST['author'];
-        $sql="INSERT INTO  authors(AuthorName) VALUES(:author)";
+        $sql="INSERT INTO authors(AuthorName) VALUES(:author)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':author',$author,PDO::PARAM_STR);
         $query->execute();
@@ -24,7 +24,8 @@ else{
         else 
         {
             $_SESSION['error']="Something went wrong. Please try again";
-            header('location:manage-authors.php');
+            #header('location:manage-authors.php');
+            echo $lastInsertId;
         }
 
     }
