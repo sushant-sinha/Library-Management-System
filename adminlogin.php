@@ -1,3 +1,9 @@
+<!-- username: admin
+
+    password: ss
+
+--->
+
 <?php
 session_start();
 error_reporting(0);

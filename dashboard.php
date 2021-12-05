@@ -68,7 +68,7 @@ else{?>
             <i class="fa fa-recycle fa-5x"></i>
             <?php 
             $rsts=0;
-            $sql2 ="SELECT id from issuedbookdetails where StudentID=:sid and RetrunStatus=:rsts;";
+            $sql2 ="SELECT id from issuedbookdetails where StudentID=:sid and ReturnStatus=:rsts;";
             $query2 = $dbh -> prepare($sql2);
             $query2->bindParam(':sid',$sid,PDO::PARAM_STR);
             $query2->bindParam(':rsts',$rsts,PDO::PARAM_STR);

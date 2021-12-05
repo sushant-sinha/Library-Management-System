@@ -7,3 +7,7 @@ check availability has error, the field is being turned to NULL
 	   v
 
 adding change-password.
+
+NOW
+
+work ON BOOK ISSUE AND NOVELTY PART

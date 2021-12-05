@@ -51,7 +51,7 @@ else{
         <?php include('includes/header.php');?>
         <!-- MENU SECTION END-->
         <div class="content-wrapper">
-           <div class="container">
+         <div class="container">
             <div class="row pad-botm">
                 <div class="col-md-12">
                     <h4 class="header-line">My Profile</h4>
@@ -62,11 +62,11 @@ else{
             <div class="row">
 
                 <div class="col-md-9 col-md-offset-1">
-                 <div class="panel panel-danger">
+                   <div class="panel panel-danger">
                     <div class="panel-heading">
-                     My Profile
-                 </div>
-                 <div class="panel-body">
+                       My Profile
+                   </div>
+                   <div class="panel-body">
                     <form name="signup" method="post">
                         <?php 
                         $sid=$_SESSION['stdid'];
@@ -116,7 +116,7 @@ else{
 
                                     <div class="form-group">
                                         <label>Mobile Number :</label>
-                                        <input class="form-control" type="text" name="mobileno" maxlength="10" value="<?php echo htmlentities($result->MobileNumber);?>" autocomplete="off" required />
+                                        <input class="form-control" type="tel" name="mobileno" minlength="10" maxlength="10" value="<?php echo htmlentities($result->MobileNumber);?>" pattern="[1-9]{1}[0-9]{9}" autocomplete="off" required />
                                     </div>
 
                                     <div class="form-group">
