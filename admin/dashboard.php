@@ -84,7 +84,7 @@ else{?>
         <i class="fa fa-recycle fa-5x"></i>
         <?php 
         $status=1;
-        $sql2 ="SELECT id from issuedbookdetails where RetrunStatus=:status";
+        $sql2 ="SELECT id from issuedbookdetails where ReturnStatus=:status";
         $query2 = $dbh -> prepare($sql2);
         $query2->bindParam(':status',$status,PDO::PARAM_STR);
         $query2->execute();
@@ -93,7 +93,7 @@ else{?>
         ?>
 
         <h3><?php echo htmlentities($returnedbooks);?></h3>
-        Times  Books Returned
+        Times  Book Returned
     </div>
 </div>
 <div class="col-md-3 col-sm-3 col-xs-6">
@@ -130,7 +130,7 @@ else{?>
 
 
     <h3><?php echo htmlentities($listdathrs);?></h3>
-    Authors Listed
+    Registered Authors
 </div>
 </div>
 
@@ -139,7 +139,7 @@ else{?>
   <div class="alert alert-info back-widget-set text-center">
     <i class="fa fa-file-archive-o fa-5x"></i>
     <?php 
-    $sql5 ="SELECT id from category ";
+    $sql5 ="SELECT id from genre ";
     $query5 = $dbh -> prepare($sql5);
     $query5->execute();
     $results5=$query5->fetchAll(PDO::FETCH_OBJ);
@@ -147,7 +147,7 @@ else{?>
     ?>
 
     <h3><?php echo htmlentities($listdcats);?> </h3>
-    Listed Categories
+    Listed Genres
 </div>
 </div>
 
