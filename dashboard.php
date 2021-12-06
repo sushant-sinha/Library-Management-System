@@ -67,11 +67,9 @@ else{?>
           <div class="alert alert-warning back-widget-set text-center">
             <i class="fa fa-recycle fa-5x"></i>
             <?php 
-            $rsts=0;
-            $sql2 ="SELECT id from issuedbookdetails where StudentID=:sid and ReturnStatus=:rsts;";
+            $sql2 ="SELECT id from issuedbookdetails where StudentID=:sid and ReturnStatus is NULL;";
             $query2 = $dbh -> prepare($sql2);
             $query2->bindParam(':sid',$sid,PDO::PARAM_STR);
-            $query2->bindParam(':rsts',$rsts,PDO::PARAM_STR);
             $query2->execute();
             $results2=$query2->fetchAll(PDO::FETCH_OBJ);
             $returnedbooks=$query2->rowCount();
