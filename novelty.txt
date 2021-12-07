@@ -1,6 +1,8 @@
-issuedbookdetails me se fetch karke genre ka sum karne ke baad,
+after fetching the genre's count based on the genreid
 
-jiska max hoga us genre ke saare book jo issued nahi hai unhe waha present karna hai top 5 books;
+the genre having the maximum count will be choosed.
+
+the books will be now selected from the table based on the selected genre.
 
 for getting all the genres he ever issued:
 
