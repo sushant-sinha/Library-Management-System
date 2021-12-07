@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `FullName` varchar(30) DEFAULT NULL,
   `Email` varchar(60) DEFAULT NULL,
@@ -48,7 +48,7 @@ INSERT INTO `admin` (`id`, `FullName`, `Email`, `UserName`, `Password`, `updatio
 -- Table structure for table `authors`
 --
 
-CREATE TABLE IF NOT EXISTS `authors` (
+CREATE TABLE `authors` (
   `id` int(11) NOT NULL,
   `AuthorName` varchar(159) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -71,7 +71,7 @@ INSERT INTO `authors` (`id`, `AuthorName`, `creationDate`, `UpdationDate`) VALUE
 -- Table structure for table `books`
 --
 
-CREATE TABLE IF NOT EXISTS `books` (
+CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `BookName` varchar(255) DEFAULT NULL,
   `Genreid` int(11) DEFAULT NULL,
@@ -97,7 +97,7 @@ INSERT INTO `books` (`id`, `BookName`, `Genreid`, `AuthorId`, `ISBNNumber`, `Boo
 -- Table structure for table `genre`
 --
 
-CREATE TABLE IF NOT EXISTS `genre` (
+CREATE TABLE IF `genre` (
   `id` int(11) AUTO_INCREMENT PRIMARY KEY,
   `Genre` varchar(150) DEFAULT NULL,
   `Status` int(1) DEFAULT NULL,
@@ -121,13 +121,13 @@ INSERT INTO `genre` (`id`, `Genre`, `Status`, `CreationDate`, `UpdationDate`) VA
 -- Table structure for table `issuedbookdetails`
 --
 
-CREATE TABLE IF NOT EXISTS `issuedbookdetails` (
+CREATE TABLE `issuedbookdetails` (
   `id` int(11) NOT NULL,
   `BookId` int(11) DEFAULT NULL,
   `StudentID` varchar(10) DEFAULT NULL,
   `IssuesDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `ReturnDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `RetrunStatus` int(1) NOT NULL,
+  `ReturnStatus` int(1) NOT NULL,
   `fine` int(11) DEFAULT NULL
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `issuedbookdetails` (
 -- Dumping data for table `issuedbookdetails`
 --
 
-INSERT INTO `issuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `ReturnDate`, `RetrunStatus`, `fine`) VALUES
+INSERT INTO `issuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `ReturnDate`, `ReturnStatus`, `fine`) VALUES
 (1, 1, 'SID002', '2017-07-15 06:09:47', '2017-07-15 11:15:20', 1, 0),
 (2, 1, 'SID002', '2017-07-15 06:12:27', '2017-07-15 11:15:23', 1, 5),
 (3, 3, 'SID002', '2017-07-15 06:13:40', NULL, 0, NULL),
@@ -149,7 +149,7 @@ INSERT INTO `issuedbookdetails` (`id`, `BookId`, `StudentID`, `IssuesDate`, `Ret
 -- Table structure for table `students`
 --
 
-CREATE TABLE IF NOT EXISTS `students` (
+CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `StudentId` varchar(100) DEFAULT NULL,
   `FullName` varchar(120) DEFAULT NULL,
@@ -231,7 +231,7 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -241,7 +241,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `issuedbookdetails`
 --
 ALTER TABLE `issuedbookdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `students`
 --
